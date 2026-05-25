@@ -1,0 +1,10 @@
+{
+  "name": "Remix: Smart Travel Itinerary Planner",
+  "description": "Generate detailed custom travel itineraries including budget estimates, local security index reports, emergency contacts, nearby amenities, and localized translation tools.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
