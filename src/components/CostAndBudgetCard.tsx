@@ -72,7 +72,7 @@ export default function CostAndBudgetCard({ budget, flightCosts, bestTimeToVisit
   };
 
   return (
-    <div id="cost-and-budget-section" className={`space-y-8 ${theme.fontClass}`}>
+    <div id="cost-and-budget-section" className={`space-y-8 w-full ${theme.fontClass}`}>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
         {/* 1. Best Time To Visit */}

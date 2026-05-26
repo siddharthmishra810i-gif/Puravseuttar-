@@ -195,11 +195,22 @@ export default function App() {
       });
 
       if (!response.ok) {
-        const errJson = await response.json();
-        throw new Error(errJson.error || "Failed to make itinerary. Check server connections.");
+        const errText = await response.text();
+        let errMsg = "Failed to make itinerary. Server might be waking up (Code: " + response.status + ").";
+        try {
+          const errJson = JSON.parse(errText);
+          if (errJson.error) errMsg = errJson.error;
+        } catch(e) {}
+        throw new Error(errMsg);
       }
 
-      const data: ItineraryData = await response.json();
+      const rawText = await response.text();
+      let data: ItineraryData;
+      try {
+        data = JSON.parse(rawText);
+      } catch (e) {
+        throw new Error("Server returned an invalid response format. It might be waking up or updating.");
+      }
       setItinerary(data);
       setActiveTab("itinerary");
     } catch (err: any) {

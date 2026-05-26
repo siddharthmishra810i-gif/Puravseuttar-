@@ -97,7 +97,7 @@ export default function ExpenseTracker({
     <ThemeCard className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6">
       
       {/* Left side: Wallet & Spent Status Panel */}
-      <div className="lg:col-span-4 space-y-6">
+      <div className="lg:col-span-4 space-y-6 min-w-0">
         <div className="rounded-2xl p-5 relative overflow-hidden shadow-xl liquid-glass border" style={{ backgroundColor: `${theme.accent}15`, borderColor: `${theme.accent}30` }}>
           <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl" style={{ backgroundColor: `${theme.accent}20` }} />
           <div className="flex justify-between items-center relative z-10 mb-6">
@@ -179,7 +179,7 @@ export default function ExpenseTracker({
       </div>
 
       {/* Right side: Expense List & Logger */}
-      <div className="lg:col-span-8 flex flex-col justify-between space-y-4">
+      <div className="lg:col-span-8 flex flex-col justify-between space-y-4 min-w-0">
         <div className="space-y-4">
           <div className="flex justify-between items-center">
             <h4 className="text-xs font-bold font-mono uppercase tracking-widest flex items-center gap-1.5 text-white">
@@ -191,8 +191,8 @@ export default function ExpenseTracker({
           </div>
 
           {/* Graphical Allocations Using Recharts */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-2 rounded-2xl p-4 border liquid-glass" style={{ backgroundColor: `${theme.accent}05`, borderColor: `${theme.accent}15` }}>
-            <div className="w-full sm:w-1/2 h-[180px]">
+          <div className="flex flex-col sm:flex-row gap-4 pt-2 rounded-2xl p-4 border liquid-glass min-w-0" style={{ backgroundColor: `${theme.accent}05`, borderColor: `${theme.accent}15` }}>
+            <div className="w-full sm:w-1/2 h-[180px] min-w-0">
               {pieData.length > 0 ? (
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>

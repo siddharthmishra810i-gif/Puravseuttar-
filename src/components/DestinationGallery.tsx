@@ -87,7 +87,7 @@ export default function DestinationGallery({ destination, country }: Destination
       </div>
 
       {/* Main Layout Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 w-full">
         
         {/* Large Selected Preview Showcase */}
         <div className="lg:col-span-8 group relative rounded-2xl overflow-hidden aspect-[16/9] border flex items-center justify-center liquid-glass" style={{ borderColor: `${theme.accent}30` }}>

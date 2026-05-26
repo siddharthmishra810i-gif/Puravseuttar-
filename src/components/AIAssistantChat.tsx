@@ -53,7 +53,13 @@ export default function AIAssistantChat({ destination, personality = "Standard" 
         throw new Error("Chat failed to consult. Check connectivity.");
       }
 
-      const data = await response.json();
+      const rawText = await response.text();
+      let data;
+      try {
+        data = JSON.parse(rawText);
+      } catch (e) {
+        throw new Error("Invalid response from server. It might be offline.");
+      }
       setMessages((prev) => [...prev, { role: "assistant", content: data.text }]);
     } catch (error: any) {
       console.error(error);

@@ -77,29 +77,28 @@ export function ThemeCard({
 }) {
   const { theme } = useAppTheme();
 
-  const elementContent = (
-    <div
-      id={id || undefined}
-      className={`relative overflow-hidden transition-all duration-500 shadow-md ${theme.cardStyle} ${theme.cardHover} ${className}`}
-      style={style}
-    >
+  const commonProps = {
+    id: id || undefined,
+    className: `relative overflow-hidden w-full transition-all duration-500 shadow-md ${theme.cardStyle} ${theme.cardHover} ${className}`,
+    style: style,
+  };
+
+  const innerGraphics = (
+    <>
       {/* Corner neon-glow indicators for cyberpunk and extrovert matching layouts */}
       {(theme.mode === "nightlife" || theme.mode === "extrovert") && (
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-current to-transparent opacity-30 text-pink-500 animate-pulse" />
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-current to-transparent opacity-30 text-pink-500 animate-pulse pointer-events-none" />
       )}
       {theme.mode === "luxury" && (
         <div className="absolute top-0 right-0 w-[45px] h-[45px] border-t border-r border-[#eab308]/20 pointer-events-none rounded-tr-3xl" />
       )}
-      
-      <div className="relative z-10 w-full h-full">
-        {children}
-      </div>
-    </div>
+    </>
   );
 
   if (animateEntrance) {
     return (
       <motion.div
+        {...commonProps}
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -107,14 +106,19 @@ export function ThemeCard({
           ease: theme.transitionEase,
           delay,
         }}
-        className="w-full h-full"
       >
-        {elementContent}
+        {innerGraphics}
+        {children}
       </motion.div>
     );
   }
 
-  return elementContent;
+  return (
+    <div {...commonProps}>
+      {innerGraphics}
+      {children}
+    </div>
+  );
 }
 
 /**

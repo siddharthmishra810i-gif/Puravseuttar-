@@ -47,7 +47,13 @@ export default function TranslationHelper({ localPhrases, targetLanguage }: Tran
       if (!response.ok) {
         throw new Error("Translation request failed");
       }
-      const data: TranslationResponse = await response.json();
+      const rawText = await response.text();
+      let data: TranslationResponse;
+      try {
+        data = JSON.parse(rawText);
+      } catch (e) {
+        throw new Error("Invalid response format");
+      }
       setCustomTranslation(data);
     } catch (error) {
       console.error(error);
@@ -90,9 +96,9 @@ export default function TranslationHelper({ localPhrases, targetLanguage }: Tran
   };
 
   return (
-    <div id="translation-helper-section" className={`grid grid-cols-1 lg:grid-cols-12 gap-6 ${theme.fontBody}`}>
+    <div id="translation-helper-section" className={`grid grid-cols-1 lg:grid-cols-12 gap-6 w-full ${theme.fontBody}`}>
       {/* Translation Dictionary & Quick Search */}
-      <ThemeCard className="lg:col-span-7 p-6 flex flex-col h-full liquid-glass drop-shadow-xl" style={{ borderColor: `${theme.accent}20` }}>
+      <ThemeCard className="lg:col-span-7 p-6 flex flex-col h-full liquid-glass drop-shadow-xl min-w-0" style={{ borderColor: `${theme.accent}20` }}>
         <div className="flex items-center justify-between mb-4">
           <div>
             <h3 className={`font-sans font-semibold text-lg flex items-center gap-2`} style={{ color: theme.accentLighter }}>
@@ -201,7 +207,7 @@ export default function TranslationHelper({ localPhrases, targetLanguage }: Tran
       </ThemeCard>
 
       {/* Dynamic Voice/Text Custom Translator */}
-      <ThemeCard className="lg:col-span-5 p-6 flex flex-col justify-between h-full liquid-glass drop-shadow-xl" style={{ borderColor: `${theme.accent}20` }}>
+      <ThemeCard className="lg:col-span-5 p-6 flex flex-col justify-between h-full liquid-glass drop-shadow-xl min-w-0" style={{ borderColor: `${theme.accent}20` }}>
         <div className="space-y-5">
           <div>
             <h3 className="font-sans font-semibold text-lg flex items-center gap-2" style={{ color: theme.accentLighter }}>

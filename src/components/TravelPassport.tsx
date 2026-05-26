@@ -67,7 +67,7 @@ export default function TravelPassport({ destination, country }: TravelPassportP
     <ThemeCard className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6">
       
       {/* Visual Stamps & Certifications */}
-      <div className="lg:col-span-5 space-y-5">
+      <div className="lg:col-span-5 space-y-5 min-w-0">
         <div className="flex items-center gap-2">
           <BookOpen className="w-4 h-4" style={{ color: theme.accentLighter }} />
           <h3 className="text-xs font-bold font-mono tracking-widest text-white opacity-80 uppercase">Digital Passport Stamps</h3>
@@ -131,7 +131,7 @@ export default function TravelPassport({ destination, country }: TravelPassportP
       </div>
 
       {/* Memory Timeline & Journaling */}
-      <div className="lg:col-span-7 flex flex-col justify-between">
+      <div className="lg:col-span-7 flex flex-col justify-between min-w-0">
         <div className="space-y-4">
           <div className="flex justify-between items-center">
             <h4 className="text-xs font-bold font-mono tracking-widest uppercase opacity-80 text-white flex items-center gap-1.5">

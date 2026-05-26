@@ -180,10 +180,10 @@ export default function SecurityCard({
   }, [localLawsList, acknowledgedLaws]);
 
   return (
-    <div id="security-analysis-section" className={`space-y-6 ${theme.fontBody}`}>
+    <div id="security-analysis-section" className={`space-y-6 w-full ${theme.fontBody}`}>
       
       {/* Top row: General Safety index */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 w-full">
         
         {/* Safety Score and Context concerns */}
         <div className="md:col-span-7">

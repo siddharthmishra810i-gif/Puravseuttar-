@@ -23,7 +23,7 @@ export default function AccommodationsAndPlaces({ accommodations, amenities, des
   };
 
   return (
-    <div id="accommodations-amenities-section" className={`grid grid-cols-1 lg:grid-cols-12 gap-6 ${theme.fontBody}`}>
+    <div id="accommodations-amenities-section" className={`grid grid-cols-1 lg:grid-cols-12 gap-6 w-full ${theme.fontBody}`}>
       
       {/* Recommended Accommodations & Lodging */}
       <div className="lg:col-span-7 h-full">
