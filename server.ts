@@ -55,7 +55,8 @@ function getFallbackItinerary(destination: string, daysLength: number = 3, perso
           weatherSuitability: "Sunny or overcast",
           transportOption: "Public Metro Line or walk",
           nearbyRestSpot: "Cafe Solitude & Patisserie",
-          hiddenAttraction: "Generous lookout point hidden down the narrow alleyway just 150m west."
+          hiddenAttraction: "Generous lookout point hidden down the narrow alleyway just 150m west.",
+          coordinates: { lat: 48.8584, lng: 2.2945 }
         },
         {
           time: "Afternoon",
@@ -73,7 +74,8 @@ function getFallbackItinerary(destination: string, daysLength: number = 3, perso
           weatherSuitability: "Indoor sanctuary",
           transportOption: "Walk or local auto-cab",
           nearbyRestSpot: "Artisanal Tea Room 'Komorebi'",
-          hiddenAttraction: "Traditional independent workshop demonstrating glass or woodcraft engraving techniques."
+          hiddenAttraction: "Traditional independent workshop demonstrating glass or woodcraft engraving techniques.",
+          coordinates: { lat: 48.8600, lng: 2.3200 }
         },
         {
           time: "Evening",
@@ -91,7 +93,8 @@ function getFallbackItinerary(destination: string, daysLength: number = 3, perso
           weatherSuitability: "Excellent clear skies",
           transportOption: "Local Tuk-Tuk / Tramways",
           nearbyRestSpot: "The Sunset Cocktail Lounge",
-          hiddenAttraction: "Hidden basement vinyl music club featuring jazz, vintage standards, and local acoustic guitarists."
+          hiddenAttraction: "Hidden basement vinyl music club featuring jazz, vintage standards, and local acoustic guitarists.",
+          coordinates: { lat: 48.8520, lng: 2.3400 }
         }
       ]
     };
@@ -100,6 +103,7 @@ function getFallbackItinerary(destination: string, daysLength: number = 3, perso
   return {
     destination: cleanDest,
     country: "Local Sovereignty",
+    centerCoordinates: { lat: 48.8566, lng: 2.3522 },
     language: "Local Language / English widely understood",
     bestTimeToVisit: "April through October (Pleasant microclimates, high visibility)",
     isQuotaFallback: true,
@@ -155,7 +159,7 @@ function getFallbackItinerary(destination: string, daysLength: number = 3, perso
       {
         name: `${cleanDest} Heritage Boutique House`,
         type: "guesthouse",
-        description: "A gorgeous, family-operated heritage mansion restoration with custom architectural artifacts, warm glowing lights, and a serene inner courtyard garden.",
+        description: "A family-operated heritage mansion restoration with custom architectural artifacts, warm glowing lights, and a serene inner courtyard garden.",
         approxPricePerNight: "$85",
         whyStay: "Exuberates authentic local architecture and sits directly in a historic district.",
         reviewSnippet: "An absolute oasis! Best morning tea ceremony, and the location is walk-friendly to everywhere.",
@@ -164,7 +168,8 @@ function getFallbackItinerary(destination: string, daysLength: number = 3, perso
         noiseLevel: "Very Quiet & Peacefully isolated",
         digitalNomadFriendliness: "High (Ergonomic tables)",
         internetSpeed: "120 Mbps symmetrical Fiber",
-        groupSuitability: "Excellent for couples or independent travelers"
+        groupSuitability: "Excellent for couples or independent travelers",
+        coordinates: { lat: 48.8566, lng: 2.3522 }
       },
       {
         name: "Zen Urban Shelter & Eco Lodge",
@@ -178,7 +183,8 @@ function getFallbackItinerary(destination: string, daysLength: number = 3, perso
         noiseLevel: "Controlled silence zones",
         digitalNomadFriendliness: "Outstanding (Fitted with private video calling booths)",
         internetSpeed: "250 Mbps",
-        groupSuitability: "Great for solo creators, backpackers, and tech nomads"
+        groupSuitability: "Great for solo creators, backpackers, and tech nomads",
+        coordinates: { lat: 48.8606, lng: 2.3376 }
       }
     ],
     amenities: {
@@ -191,7 +197,8 @@ function getFallbackItinerary(destination: string, daysLength: number = 3, perso
           touristTrapProbability: "Negligible (95% local customer base)",
           authenticLocalScore: 98,
           reservationSuggested: true,
-          waitingTimeNormal: "15 to 30 mins"
+          waitingTimeNormal: "15 to 30 mins",
+          coordinates: { lat: 48.8530, lng: 2.3499 }
         },
         {
           name: "Noodle & Steam Dim-Sum Alley",
@@ -201,7 +208,8 @@ function getFallbackItinerary(destination: string, daysLength: number = 3, perso
           touristTrapProbability: "Zero (Unmarked sign)",
           authenticLocalScore: 100,
           reservationSuggested: false,
-          waitingTimeNormal: "5 to 10 mins"
+          waitingTimeNormal: "5 to 10 mins",
+          coordinates: { lat: 48.8580, lng: 2.3500 }
         }
       ],
       chemists: [
@@ -269,25 +277,25 @@ function getFallbackTranslation(text: string, targetLanguage: string) {
   return {
     translatedText: `[Fallback] ${text}`,
     pronunciation: `ph-on-et-ic (${text})`,
-    notes: `Operating in Fallback Companion Mode for target language: ${targetLanguage || "local dialect"}.`
+    notes: `Fallback translation for: ${targetLanguage || "local dialect"}.`
   };
 }
 
 function getFallbackChatResponse(message: string, destination: string, personality: string) {
   return {
-    text: `### 📡 Smart Offline Companion Mode
+    text: `### Fallback Mode
 
-Hi there! I am currently operating in **Smart Fallback Mode** because the collective Gemini API free-tier quota is temporarily exhausted:
+Hi there! I am currently operating in **Fallback Mode** because the Gemini API quota is temporarily exhausted:
 
 1. **Your Destination**: *${destination || "Specified territory"}*
 2. **Your Traveler Persona**: *${personality}*
 
-**Immediate Advice regarding your question ("${message}"):**
-- **Local Highlights**: We highly recommend visiting older town quarters, choosing street eateries with handwritten menus, and walking along the canal promenade in the evening.
-- **Safety tip**: Remember to keep cash inside zippered front slots and maintain active mobile emergency registrations.
-- **Regulations**: Ensure you have a physical ID on hand, as local municipal marshals do carry out spontaneous audits in tourist spots.
+**Advice regarding your question ("${message}"):**
+- **Local Highlights**: We highly recommend visiting older town quarters, choosing street eateries, and walking along the promenade in the evening.
+- **Safety tip**: Remember to keep cash inside zippered front slots.
+- **Regulations**: Ensure you have a physical ID on hand.
 
-Please try again in a few minutes, or upgrade your key configuration to restore full contextual AI capabilities!`
+Please try again in a few minutes, or use your own API key to restore full AI capabilities!`
   };
 }
 
@@ -334,6 +342,14 @@ Also generate:
             country: { type: Type.STRING },
             language: { type: Type.STRING },
             bestTimeToVisit: { type: Type.STRING },
+            centerCoordinates: {
+              type: Type.OBJECT,
+              properties: {
+                lat: { type: Type.NUMBER },
+                lng: { type: Type.NUMBER }
+              },
+              required: ["lat", "lng"]
+            },
             flightCosts: {
               type: Type.OBJECT,
               properties: {
@@ -407,9 +423,14 @@ Also generate:
                   noiseLevel: { type: Type.STRING },
                   digitalNomadFriendliness: { type: Type.STRING },
                   internetSpeed: { type: Type.STRING },
-                  groupSuitability: { type: Type.STRING }
+                  groupSuitability: { type: Type.STRING },
+                  coordinates: { 
+                    type: Type.OBJECT, 
+                    properties: { lat: { type: Type.NUMBER }, lng: { type: Type.NUMBER } },
+                    required: ["lat", "lng"]
+                  }
                 },
-                required: ["name", "type", "description", "approxPricePerNight"]
+                required: ["name", "type", "description", "approxPricePerNight", "coordinates"]
               }
             },
             amenities: {
@@ -427,9 +448,14 @@ Also generate:
                       touristTrapProbability: { type: Type.STRING },
                       authenticLocalScore: { type: Type.INTEGER },
                       reservationSuggested: { type: Type.BOOLEAN },
-                      waitingTimeNormal: { type: Type.STRING }
+                      waitingTimeNormal: { type: Type.STRING },
+                      coordinates: { 
+                        type: Type.OBJECT, 
+                        properties: { lat: { type: Type.NUMBER }, lng: { type: Type.NUMBER } },
+                        required: ["lat", "lng"]
+                      }
                     },
-                    required: ["name", "type", "description"]
+                    required: ["name", "type", "description", "coordinates"]
                   }
                 },
                 chemists: {
@@ -487,9 +513,14 @@ Also generate:
                         weatherSuitability: { type: Type.STRING },
                         transportOption: { type: Type.STRING },
                         nearbyRestSpot: { type: Type.STRING },
-                        hiddenAttraction: { type: Type.STRING }
+                        hiddenAttraction: { type: Type.STRING },
+                        coordinates: { 
+                          type: Type.OBJECT, 
+                          properties: { lat: { type: Type.NUMBER }, lng: { type: Type.NUMBER } },
+                          required: ["lat", "lng"]
+                        }
                       },
-                      required: ["time", "title", "description"]
+                      required: ["time", "title", "description", "coordinates"]
                     }
                   }
                 },
@@ -591,7 +622,7 @@ Also generate:
     const data = JSON.parse(response.text || "{}");
     res.json(data);
   } catch (error: any) {
-    console.error("Plan API Error (triggering gorgeous smart simulation fallback):", error);
+    console.error("Plan API Error:", error);
     const fallback = getFallbackItinerary(destination, Number(days) || 3, personality, mood, transport, flexibility);
     res.json({
       ...fallback,
@@ -632,7 +663,7 @@ app.post("/api/translate-text", async (req, res) => {
     const data = JSON.parse(response.text || "{}");
     res.json(data);
   } catch (error: any) {
-    console.error("Translation API Error (triggering smart legacy translation simulation):", error);
+    console.error("Translation API Error:", error);
     const fallback = getFallbackTranslation(text, targetLanguage);
     res.json({
       ...fallback,
@@ -674,7 +705,7 @@ Be direct and friendly, avoiding robotic generalities. Always reply with rich Ma
 
     res.json({ text: response.text });
   } catch (error: any) {
-    console.error("Chat API Error (triggering smart chatbot text simulation):", error);
+    console.error("Chat API Error:", error);
     const fallback = getFallbackChatResponse(message, destination, personality);
     res.json({
       text: fallback.text,

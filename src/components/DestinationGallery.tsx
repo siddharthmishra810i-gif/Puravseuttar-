@@ -76,11 +76,11 @@ export default function DestinationGallery({ destination, country }: Destination
           {hasPremiumImage ? (
             <span className="px-3 py-1 border text-[10px] font-bold font-mono uppercase tracking-wider rounded-xl flex items-center gap-1.5 shadow-md liquid-glass text-white" style={{ backgroundColor: theme.accent, borderColor: theme.accentLighter }}>
               <Sparkles className="w-3 h-3 text-white fill-white" />
-              Bespoke AI Masterpiece
+              Generated Image
             </span>
           ) : (
             <span className="px-3 py-1 border text-[10px] font-bold font-mono uppercase tracking-wider rounded-xl liquid-glass text-white opacity-90" style={{ backgroundColor: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.1)" }}>
-              Contextual Sandbox Gallery
+              Destination Gallery
             </span>
           )}
         </div>

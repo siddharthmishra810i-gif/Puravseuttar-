@@ -358,25 +358,16 @@ export default function App() {
               <h1 className="font-display font-medium text-base text-white tracking-tight flex items-center gap-2.5 drop-shadow-md">
                 <Compass className="w-5 h-5 shrink-0" style={{ color: theme.accentLighter, filter: `drop-shadow(0 0 5px ${theme.accent})` }} />
                 <span className="font-black tracking-wide" style={{ textShadow: `0 0 15px ${theme.accent}` }}>
-                  SMART VOYAGE AI
+                  SMART VOYAGE
                 </span>
                 <span className="hidden sm:inline text-xs opacity-70 border-l pl-2.5 font-light" style={{ borderColor: `${theme.accent}50` }}>
-                  Global Travel Intelligence Cockpit
+                  Travel Planner
                 </span>
               </h1>
             </div>
 
             <div className="flex items-center space-x-6">
-              <div className="text-right hidden sm:block">
-                <p className="text-[10px] font-bold opacity-60 text-white uppercase tracking-widest leading-none" style={{ color: theme.accentLighter }}>AI CORE STATUS</p>
-                <p className="text-xs font-semibold text-emerald-400 flex items-center mt-1 drop-shadow-[0_0_8px_currentColor]">
-                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-1.5 animate-[pulse_1s_infinite]"></span>
-                  ACTIVE LOGS ONLINE
-                </p>
-              </div>
-              
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono opacity-80 text-white font-light hidden lg:inline border px-2 py-1 rounded" style={{ borderColor: `${theme.accent}30`, backgroundColor: `${theme.accent}10` }}>Engine: Gemini Pro</span>
                 <div className="w-10 h-10 rounded-xl border flex items-center justify-center text-xs font-bold font-sans shadow-lg uppercase liquid-glass drop-shadow-[0_0_10px_currentColor]" style={{ backgroundColor: `${theme.accent}30`, borderColor: theme.accentLighter, color: theme.accentLighter }}>
                   {itinerary.country.substring(0, 2)}
                 </div>
@@ -680,7 +671,7 @@ export default function App() {
               </div>
 
               <div className="text-[10px] text-slate-500 mt-6 pt-3 border-t border-slate-850/60 leading-relaxed font-mono">
-                ⚡ Synced profiles reside locally within sandbox browser localStorage blocks.
+                Your data is stored securely in your browser.
               </div>
             </div>
 
@@ -697,7 +688,7 @@ export default function App() {
               >
                 <AlertTriangle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                 <div className="space-y-1">
-                  <span className="font-bold block text-rose-400">Tactical Flight Telemetry Disrupted</span>
+                  <span className="font-bold block text-rose-400">Connection Error</span>
                   <span className="leading-relaxed block">{error}</span>
                   {error.includes("GEMINI_API_KEY") && (
                     <span className="block mt-2 pt-2 border-t border-rose-900/30 text-rose-400">
@@ -732,12 +723,12 @@ export default function App() {
                     </div>
                     <div className="space-y-0.5 shadow-sm">
                       <p className="text-xs font-bold uppercase tracking-wider font-mono text-amber-400 drop-shadow-md">
-                        Smart Simulation Mode Enabled
+                        Fallback Mode Enabled
                       </p>
                       <p className="text-[11px] text-white opacity-80 leading-normal max-w-3xl font-sans">
-                        The collective Gemini API free-tier quota is currently exhausted (429 Rate Limit).
-                        Applying a highly specialized offline regional simulation index for <strong className="text-white">{" "}{itinerary.destination}</strong> instead.
-                        All interactive checklist systems, regulations compliance guides, translation suites, and local emergency registries remain fully operational below.
+                        The Gemini API quota is currently exhausted (429 Rate Limit).
+                        Displaying a fallback itinerary for <strong className="text-white">{" "}{itinerary.destination}</strong> instead.
+                        Other features below are still functional.
                       </p>
                     </div>
                   </div>
@@ -822,6 +813,7 @@ export default function App() {
                   restaurants={itinerary.amenities.restaurants}
                   itineraryDays={itinerary.itineraryDays}
                   showChronologicalPath={showChronologicalPath}
+                  centerCoordinates={itinerary.centerCoordinates}
                 />
 
                 {/* Cinematic Tabs Selection strip */}
@@ -1110,9 +1102,6 @@ export default function App() {
         <footer className="mt-auto text-center text-white opacity-60 text-xs py-10 border-t font-sans space-y-1.5 liquid-glass" style={{ borderColor: `${theme.accent}30`, backgroundColor: `${theme.accent}05` }}>
           <p className="flex items-center justify-center gap-1.5">
             Smart Voyage AI Operating System is dynamically optimized. Powered by <Heart className="w-3.5 h-3.5 text-pink-400 fill-pink-400 animate-pulse" /> and active generative models.
-          </p>
-          <p className="text-[9px] font-mono opacity-50">
-            Telemetry standard: SECURE-OS-FLIGHT // Sandbox Preview Module
           </p>
         </footer>
 

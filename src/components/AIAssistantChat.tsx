@@ -65,7 +65,7 @@ export default function AIAssistantChat({ destination, personality = "Standard" 
       console.error(error);
       setMessages((prev) => [
         ...prev, 
-        { role: "assistant", content: "⚠️ Sorry, my synaptic flight telemetry has stalled. Check your internet connection or verify your API keys." }
+        { role: "assistant", content: "⚠️ Sorry, there was a connection error. Check your internet connection or verify your API keys." }
       ]);
     } finally {
       setSending(false);

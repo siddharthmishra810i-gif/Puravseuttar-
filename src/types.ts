@@ -33,6 +33,11 @@ export interface EmergencyContacts {
   embassyInfo: string;
 }
 
+export interface LocationCoordinates {
+  lat: number;
+  lng: number;
+}
+
 export interface Accommodation {
   name: string;
   type: string; // hotel, hostel, dorm
@@ -46,6 +51,7 @@ export interface Accommodation {
   digitalNomadFriendliness?: string;
   internetSpeed?: string;
   groupSuitability?: string;
+  coordinates?: LocationCoordinates;
 }
 
 export interface Restaurant {
@@ -57,6 +63,7 @@ export interface Restaurant {
   authenticLocalScore?: number;
   reservationSuggested?: boolean;
   waitingTimeNormal?: string;
+  coordinates?: LocationCoordinates;
 }
 
 export interface Chemist {
